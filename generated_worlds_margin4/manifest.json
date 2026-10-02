@@ -1,0 +1,2454 @@
+{
+  "world_configuration": "hexagonal",
+  "world_implementation": "canonical",
+  "occlusion_count": 36,
+  "entropy": 0.496168411020395,
+  "box_radii": [
+    1,
+    2,
+    3
+  ],
+  "margin": 4,
+  "start_goal": [
+    {
+      "x": -20,
+      "y": 0
+    },
+    {
+      "x": 20,
+      "y": 0
+    }
+  ],
+  "keep_free": [
+    {
+      "x": -20,
+      "y": 0
+    },
+    {
+      "x": 20,
+      "y": 0
+    },
+    {
+      "x": 10,
+      "y": 10
+    },
+    {
+      "x": -20,
+      "y": 0
+    },
+    {
+      "x": -19,
+      "y": -1
+    },
+    {
+      "x": -19,
+      "y": 1
+    },
+    {
+      "x": -18,
+      "y": -2
+    },
+    {
+      "x": -18,
+      "y": 0
+    },
+    {
+      "x": -18,
+      "y": 2
+    },
+    {
+      "x": -17,
+      "y": -3
+    },
+    {
+      "x": -17,
+      "y": -1
+    },
+    {
+      "x": -17,
+      "y": 1
+    },
+    {
+      "x": -17,
+      "y": 3
+    },
+    {
+      "x": -16,
+      "y": -4
+    },
+    {
+      "x": -16,
+      "y": -2
+    },
+    {
+      "x": -16,
+      "y": 0
+    },
+    {
+      "x": -16,
+      "y": 2
+    },
+    {
+      "x": -16,
+      "y": 4
+    },
+    {
+      "x": -15,
+      "y": -5
+    },
+    {
+      "x": -15,
+      "y": -3
+    },
+    {
+      "x": -15,
+      "y": -1
+    },
+    {
+      "x": -15,
+      "y": 1
+    },
+    {
+      "x": -15,
+      "y": 3
+    },
+    {
+      "x": -15,
+      "y": 5
+    },
+    {
+      "x": -14,
+      "y": -6
+    },
+    {
+      "x": -14,
+      "y": -4
+    },
+    {
+      "x": -14,
+      "y": -2
+    },
+    {
+      "x": -14,
+      "y": 0
+    },
+    {
+      "x": -14,
+      "y": 2
+    },
+    {
+      "x": -14,
+      "y": 4
+    },
+    {
+      "x": -14,
+      "y": 6
+    },
+    {
+      "x": -13,
+      "y": -7
+    },
+    {
+      "x": -13,
+      "y": -5
+    },
+    {
+      "x": -13,
+      "y": -3
+    },
+    {
+      "x": -13,
+      "y": -1
+    },
+    {
+      "x": -13,
+      "y": 1
+    },
+    {
+      "x": -13,
+      "y": 3
+    },
+    {
+      "x": -13,
+      "y": 5
+    },
+    {
+      "x": -13,
+      "y": 7
+    },
+    {
+      "x": -12,
+      "y": -8
+    },
+    {
+      "x": -12,
+      "y": -6
+    },
+    {
+      "x": -12,
+      "y": -4
+    },
+    {
+      "x": -12,
+      "y": -2
+    },
+    {
+      "x": -12,
+      "y": 2
+    },
+    {
+      "x": -12,
+      "y": 4
+    },
+    {
+      "x": -12,
+      "y": 6
+    },
+    {
+      "x": -12,
+      "y": 8
+    },
+    {
+      "x": -11,
+      "y": -9
+    },
+    {
+      "x": -11,
+      "y": -7
+    },
+    {
+      "x": -11,
+      "y": -5
+    },
+    {
+      "x": -11,
+      "y": -3
+    },
+    {
+      "x": -11,
+      "y": 3
+    },
+    {
+      "x": -11,
+      "y": 5
+    },
+    {
+      "x": -11,
+      "y": 7
+    },
+    {
+      "x": -11,
+      "y": 9
+    },
+    {
+      "x": -10,
+      "y": -10
+    },
+    {
+      "x": -10,
+      "y": -8
+    },
+    {
+      "x": -10,
+      "y": -6
+    },
+    {
+      "x": -10,
+      "y": -4
+    },
+    {
+      "x": -10,
+      "y": 4
+    },
+    {
+      "x": -10,
+      "y": 6
+    },
+    {
+      "x": -10,
+      "y": 8
+    },
+    {
+      "x": -10,
+      "y": 10
+    },
+    {
+      "x": -9,
+      "y": -9
+    },
+    {
+      "x": -9,
+      "y": -7
+    },
+    {
+      "x": -9,
+      "y": -5
+    },
+    {
+      "x": -9,
+      "y": 5
+    },
+    {
+      "x": -9,
+      "y": 7
+    },
+    {
+      "x": -9,
+      "y": 9
+    },
+    {
+      "x": -8,
+      "y": -10
+    },
+    {
+      "x": -8,
+      "y": -8
+    },
+    {
+      "x": -8,
+      "y": -6
+    },
+    {
+      "x": -8,
+      "y": 6
+    },
+    {
+      "x": -8,
+      "y": 8
+    },
+    {
+      "x": -8,
+      "y": 10
+    },
+    {
+      "x": -7,
+      "y": -9
+    },
+    {
+      "x": -7,
+      "y": -7
+    },
+    {
+      "x": -7,
+      "y": 7
+    },
+    {
+      "x": -7,
+      "y": 9
+    },
+    {
+      "x": -6,
+      "y": -10
+    },
+    {
+      "x": -6,
+      "y": -8
+    },
+    {
+      "x": -6,
+      "y": 8
+    },
+    {
+      "x": -6,
+      "y": 10
+    },
+    {
+      "x": -5,
+      "y": -9
+    },
+    {
+      "x": -5,
+      "y": -7
+    },
+    {
+      "x": -5,
+      "y": 7
+    },
+    {
+      "x": -5,
+      "y": 9
+    },
+    {
+      "x": -4,
+      "y": -10
+    },
+    {
+      "x": -4,
+      "y": -8
+    },
+    {
+      "x": -4,
+      "y": 8
+    },
+    {
+      "x": -4,
+      "y": 10
+    },
+    {
+      "x": -3,
+      "y": -9
+    },
+    {
+      "x": -3,
+      "y": -7
+    },
+    {
+      "x": -3,
+      "y": 7
+    },
+    {
+      "x": -3,
+      "y": 9
+    },
+    {
+      "x": -2,
+      "y": -10
+    },
+    {
+      "x": -2,
+      "y": -8
+    },
+    {
+      "x": -2,
+      "y": 8
+    },
+    {
+      "x": -2,
+      "y": 10
+    },
+    {
+      "x": -1,
+      "y": -9
+    },
+    {
+      "x": -1,
+      "y": -7
+    },
+    {
+      "x": -1,
+      "y": 7
+    },
+    {
+      "x": -1,
+      "y": 9
+    },
+    {
+      "x": 0,
+      "y": -10
+    },
+    {
+      "x": 0,
+      "y": -8
+    },
+    {
+      "x": 0,
+      "y": 8
+    },
+    {
+      "x": 0,
+      "y": 10
+    },
+    {
+      "x": 1,
+      "y": -9
+    },
+    {
+      "x": 1,
+      "y": -7
+    },
+    {
+      "x": 1,
+      "y": 7
+    },
+    {
+      "x": 1,
+      "y": 9
+    },
+    {
+      "x": 2,
+      "y": -10
+    },
+    {
+      "x": 2,
+      "y": -8
+    },
+    {
+      "x": 2,
+      "y": 8
+    },
+    {
+      "x": 2,
+      "y": 10
+    },
+    {
+      "x": 3,
+      "y": -9
+    },
+    {
+      "x": 3,
+      "y": -7
+    },
+    {
+      "x": 3,
+      "y": 7
+    },
+    {
+      "x": 3,
+      "y": 9
+    },
+    {
+      "x": 4,
+      "y": -10
+    },
+    {
+      "x": 4,
+      "y": -8
+    },
+    {
+      "x": 4,
+      "y": 8
+    },
+    {
+      "x": 4,
+      "y": 10
+    },
+    {
+      "x": 5,
+      "y": -9
+    },
+    {
+      "x": 5,
+      "y": -7
+    },
+    {
+      "x": 5,
+      "y": 7
+    },
+    {
+      "x": 5,
+      "y": 9
+    },
+    {
+      "x": 6,
+      "y": -10
+    },
+    {
+      "x": 6,
+      "y": -8
+    },
+    {
+      "x": 6,
+      "y": 8
+    },
+    {
+      "x": 6,
+      "y": 10
+    },
+    {
+      "x": 7,
+      "y": -9
+    },
+    {
+      "x": 7,
+      "y": -7
+    },
+    {
+      "x": 7,
+      "y": 7
+    },
+    {
+      "x": 7,
+      "y": 9
+    },
+    {
+      "x": 8,
+      "y": -10
+    },
+    {
+      "x": 8,
+      "y": -8
+    },
+    {
+      "x": 8,
+      "y": -6
+    },
+    {
+      "x": 8,
+      "y": 6
+    },
+    {
+      "x": 8,
+      "y": 8
+    },
+    {
+      "x": 8,
+      "y": 10
+    },
+    {
+      "x": 9,
+      "y": -9
+    },
+    {
+      "x": 9,
+      "y": -7
+    },
+    {
+      "x": 9,
+      "y": -5
+    },
+    {
+      "x": 9,
+      "y": 5
+    },
+    {
+      "x": 9,
+      "y": 7
+    },
+    {
+      "x": 9,
+      "y": 9
+    },
+    {
+      "x": 10,
+      "y": -10
+    },
+    {
+      "x": 10,
+      "y": -8
+    },
+    {
+      "x": 10,
+      "y": -6
+    },
+    {
+      "x": 10,
+      "y": -4
+    },
+    {
+      "x": 10,
+      "y": 4
+    },
+    {
+      "x": 10,
+      "y": 6
+    },
+    {
+      "x": 10,
+      "y": 8
+    },
+    {
+      "x": 10,
+      "y": 10
+    },
+    {
+      "x": 11,
+      "y": -9
+    },
+    {
+      "x": 11,
+      "y": -7
+    },
+    {
+      "x": 11,
+      "y": -5
+    },
+    {
+      "x": 11,
+      "y": -3
+    },
+    {
+      "x": 11,
+      "y": 3
+    },
+    {
+      "x": 11,
+      "y": 5
+    },
+    {
+      "x": 11,
+      "y": 7
+    },
+    {
+      "x": 11,
+      "y": 9
+    },
+    {
+      "x": 12,
+      "y": -8
+    },
+    {
+      "x": 12,
+      "y": -6
+    },
+    {
+      "x": 12,
+      "y": -4
+    },
+    {
+      "x": 12,
+      "y": -2
+    },
+    {
+      "x": 12,
+      "y": 2
+    },
+    {
+      "x": 12,
+      "y": 4
+    },
+    {
+      "x": 12,
+      "y": 6
+    },
+    {
+      "x": 12,
+      "y": 8
+    },
+    {
+      "x": 13,
+      "y": -7
+    },
+    {
+      "x": 13,
+      "y": -5
+    },
+    {
+      "x": 13,
+      "y": -3
+    },
+    {
+      "x": 13,
+      "y": -1
+    },
+    {
+      "x": 13,
+      "y": 1
+    },
+    {
+      "x": 13,
+      "y": 3
+    },
+    {
+      "x": 13,
+      "y": 5
+    },
+    {
+      "x": 13,
+      "y": 7
+    },
+    {
+      "x": 14,
+      "y": -6
+    },
+    {
+      "x": 14,
+      "y": -4
+    },
+    {
+      "x": 14,
+      "y": -2
+    },
+    {
+      "x": 14,
+      "y": 0
+    },
+    {
+      "x": 14,
+      "y": 2
+    },
+    {
+      "x": 14,
+      "y": 4
+    },
+    {
+      "x": 14,
+      "y": 6
+    },
+    {
+      "x": 15,
+      "y": -5
+    },
+    {
+      "x": 15,
+      "y": -3
+    },
+    {
+      "x": 15,
+      "y": -1
+    },
+    {
+      "x": 15,
+      "y": 1
+    },
+    {
+      "x": 15,
+      "y": 3
+    },
+    {
+      "x": 15,
+      "y": 5
+    },
+    {
+      "x": 16,
+      "y": -4
+    },
+    {
+      "x": 16,
+      "y": -2
+    },
+    {
+      "x": 16,
+      "y": 0
+    },
+    {
+      "x": 16,
+      "y": 2
+    },
+    {
+      "x": 16,
+      "y": 4
+    },
+    {
+      "x": 17,
+      "y": -3
+    },
+    {
+      "x": 17,
+      "y": -1
+    },
+    {
+      "x": 17,
+      "y": 1
+    },
+    {
+      "x": 17,
+      "y": 3
+    },
+    {
+      "x": 18,
+      "y": -2
+    },
+    {
+      "x": 18,
+      "y": 0
+    },
+    {
+      "x": 18,
+      "y": 2
+    },
+    {
+      "x": 19,
+      "y": -1
+    },
+    {
+      "x": 19,
+      "y": 1
+    },
+    {
+      "x": 20,
+      "y": 0
+    }
+  ],
+  "worlds": [
+    {
+      "occlusions": "lac00_05_r00",
+      "level": 0,
+      "replicate": 0,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.8699365485023214,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.491465104560343,
+        "2": 1.804080742792654,
+        "3": 1.4546879145459204
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.055667211736581,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r01",
+      "level": 0,
+      "replicate": 1,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.8594148336632519,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.4184933232552286,
+        "2": 1.8168154303888377,
+        "3": 1.4630971734146152
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 5.955204233119904,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r02",
+      "level": 0,
+      "replicate": 2,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.871069202550053,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.491465104560343,
+        "2": 1.7955909510618655,
+        "3": 1.4642233704846757
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.02463364879925,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r03",
+      "level": 0,
+      "replicate": 3,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.869908992034529,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.522738725119678,
+        "2": 1.79983584692726,
+        "3": 1.4399792666148699
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 5.995222268090094,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r04",
+      "level": 0,
+      "replicate": 4,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.8690115477341018,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.4289178634416735,
+        "2": 1.8040807427926542,
+        "3": 1.4899344240549404
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.060207661008176,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r05",
+      "level": 0,
+      "replicate": 5,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.8621165738527414,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.5748614260519025,
+        "2": 1.7602168188502443,
+        "3": 1.4246250261336766
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 5.959396538905477,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r06",
+      "level": 0,
+      "replicate": 6,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.869670235865607,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.5227387251196776,
+        "2": 1.7913460551964708,
+        "3": 1.4462496855630695
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.080587555598741,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r07",
+      "level": 0,
+      "replicate": 7,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.8635985555025483,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.5331632653061225,
+        "2": 1.7871011593310762,
+        "3": 1.42969953991771
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 5.964552331331195,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r08",
+      "level": 0,
+      "replicate": 8,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.8648269646338196,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.6061350466112367,
+        "2": 1.764461714715639,
+        "3": 1.4102836299506485
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 5.930310313729217,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac00_05_r09",
+      "level": 0,
+      "replicate": 9,
+      "target_lacunarity": 1.8532159156418773,
+      "lacunarity": 1.86685879215868,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.4289178634416735,
+        "2": 1.813985499811908,
+        "3": 1.4766846767949773
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.123382002423647,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r00",
+      "level": 1,
+      "replicate": 0,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.0820502631140267,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.8771730914588063,
+        "2": 1.9936860914469408,
+        "3": 1.573442439584615
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.340842576364194,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r01",
+      "level": 1,
+      "replicate": 1,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.09278188918477,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.9501448727639206,
+        "2": 1.9851962997161519,
+        "3": 1.5650387839687823
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 5.97805274802847,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r02",
+      "level": 1,
+      "replicate": 2,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.09604345620267,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.845899470899471,
+        "2": 2.006420779043124,
+        "3": 1.6127211274881779
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.442096158428981,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r03",
+      "level": 1,
+      "replicate": 3,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.090959687607184,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.804201310153692,
+        "2": 2.021985397216237,
+        "3": 1.6123145650215447
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.319291134303241,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r04",
+      "level": 1,
+      "replicate": 4,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.082285148779074,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.8875976316452507,
+        "2": 2.016325536062378,
+        "3": 1.550683899573896
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.155833449366439,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r05",
+      "level": 1,
+      "replicate": 5,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.0983935660720587,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.908446712018141,
+        "2": 2.026230293081632,
+        "3": 1.5678731499914804
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.139810182673385,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r06",
+      "level": 1,
+      "replicate": 6,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.0805900438456386,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.856324011085917,
+        "2": 1.968216716254574,
+        "3": 1.6020614165208555
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.27149035425778,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r07",
+      "level": 1,
+      "replicate": 7,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.0878393900129115,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.887597631645251,
+        "2": 1.9979309873123354,
+        "3": 1.5775171923670896
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.15377643357027,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r08",
+      "level": 1,
+      "replicate": 8,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.0950403973142366,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.9084467120181414,
+        "2": 1.9668017509661093,
+        "3": 1.6075167519499858
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.136675874944733,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac01_05_r09",
+      "level": 1,
+      "replicate": 9,
+      "target_lacunarity": 2.077902191351305,
+      "lacunarity": 2.070785390068992,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.720804988662132,
+        "2": 1.9993459526008004,
+        "3": 1.6323749204337001
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.308056158882086,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r00",
+      "level": 2,
+      "replicate": 0,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.349953168894715,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.2211829176114897,
+        "2": 2.278094114428371,
+        "3": 1.7684409920410324
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.347008764341967,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r01",
+      "level": 2,
+      "replicate": 1,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.349490607148771,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.03354119425548,
+        "2": 2.2710192879860474,
+        "3": 1.882566905613408
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.5527041433858075,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r02",
+      "level": 2,
+      "replicate": 2,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.3274844342860934,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 2.9918430335097,
+        "2": 2.231400259909032,
+        "3": 1.8886177700075382
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.4014421759045765,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r03",
+      "level": 2,
+      "replicate": 3,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.3185077616956904,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.0543902746283704,
+        "2": 2.2653594268321875,
+        "3": 1.8012086181053308
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.302173658904088,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r04",
+      "level": 2,
+      "replicate": 4,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.3410210369640896,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.262881078357269,
+        "2": 2.225740398755173,
+        "3": 1.7666080094604357
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.226480119674388,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r05",
+      "level": 2,
+      "replicate": 5,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.334059437935616,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.03354119425548,
+        "2": 2.2554546698129343,
+        "3": 1.858453649796622
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.54747714357053,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r06",
+      "level": 2,
+      "replicate": 6,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.3307923200566414,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.252456538170824,
+        "2": 2.2398900516398212,
+        "3": 1.7380910870722703
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.1145185862386935,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r07",
+      "level": 2,
+      "replicate": 7,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.31701335287072,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.05439027462837,
+        "2": 2.2427199822167507,
+        "3": 1.8158753325868142
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.324875459213219,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r08",
+      "level": 2,
+      "replicate": 8,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.344918721189168,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.1377865961199296,
+        "2": 2.2328152251974966,
+        "3": 1.8403786798470314
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.390176150102456,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac02_05_r09",
+      "level": 2,
+      "replicate": 9,
+      "target_lacunarity": 2.329829719451277,
+      "lacunarity": 2.348720592314841,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.11693751574704,
+        "2": 2.275264183851441,
+        "3": 1.8269814581717454
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.325867056687893,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r00",
+      "level": 3,
+      "replicate": 0,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.5896313189547855,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.252456538170824,
+        "2": 2.5313729010635755,
+        "3": 2.1093380547307987
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.570178384289241,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r01",
+      "level": 3,
+      "replicate": 1,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.6192453532952937,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.5339191232048375,
+        "2": 2.507318491159673,
+        "3": 2.0279742520464494
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.180904379206402,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r02",
+      "level": 3,
+      "replicate": 2,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.6266972300835842,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.4922209624590588,
+        "2": 2.555427310967477,
+        "3": 2.0307889958529577
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.334474324928367,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r03",
+      "level": 3,
+      "replicate": 3,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.623079249346937,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.565192743764172,
+        "2": 2.541277658082829,
+        "3": 1.992044809214943
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.5321684773175255,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r04",
+      "level": 3,
+      "replicate": 4,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.5960027774811016,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.3358528596623835,
+        "2": 2.5695769638521253,
+        "3": 2.04101850350199
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.335440447403405,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r05",
+      "level": 3,
+      "replicate": 5,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.615524854800755,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.4922209624590588,
+        "2": 2.556842276255942,
+        "3": 2.0038762623611768
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.485539609392164,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r06",
+      "level": 3,
+      "replicate": 6,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.6209461406236336,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.4505228017132783,
+        "2": 2.5554273109674774,
+        "3": 2.041859503340542
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.638838870352058,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r07",
+      "level": 3,
+      "replicate": 7,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.6045213031903356,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.6902872260015123,
+        "2": 2.515808282890462,
+        "3": 1.9030317299648154
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.408574291416675,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r08",
+      "level": 3,
+      "replicate": 8,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.6351284812380933,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.7945326278659617,
+        "2": 2.5384477275058996,
+        "3": 1.899673081504191
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.218797586593892,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac03_05_r09",
+      "level": 3,
+      "replicate": 9,
+      "target_lacunarity": 2.6123012643383365,
+      "lacunarity": 2.59248557014987,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.659013605442178,
+        "2": 2.463454567217264,
+        "3": 1.9330383129373985
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.43497852998513,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r00",
+      "level": 4,
+      "replicate": 0,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.9083303784174266,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.003023431594861,
+        "2": 2.7818217571218495,
+        "3": 2.209091920324071
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.577414992336525,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r01",
+      "level": 4,
+      "replicate": 1,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.9105516896269132,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.7632590073066265,
+        "2": 2.8129509934680756,
+        "3": 2.329161879926536
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.5410477022840725,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r02",
+      "level": 4,
+      "replicate": 2,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.909540944837975,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.742409926933737,
+        "2": 2.835590438083513,
+        "3": 2.3210182753532123
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.528516252166258,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r03",
+      "level": 4,
+      "replicate": 3,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.924088812612602,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.9092025699168564,
+        "2": 2.834175472795048,
+        "3": 2.2566113424353937
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.3968688061370695,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r04",
+      "level": 4,
+      "replicate": 4,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.9175816556337377,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.0447215923406405,
+        "2": 2.8483251256796964,
+        "3": 2.1557126224285073
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.496049758564801,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r05",
+      "level": 4,
+      "replicate": 5,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.9453478243935387,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.8153817082388515,
+        "2": 2.8865291884682467,
+        "3": 2.3200418604384057
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.438522196282134,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r06",
+      "level": 4,
+      "replicate": 6,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.9463699561281844,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.919627110103301,
+        "2": 2.8851142231797815,
+        "3": 2.2617993120601065
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.327772367325421,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r07",
+      "level": 4,
+      "replicate": 7,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.906694023070117,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.8779289493575213,
+        "2": 2.8214407851988654,
+        "3": 2.244539047467786
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.473916453436054,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r08",
+      "level": 4,
+      "replicate": 8,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.90167947503327,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 3.9717498110355254,
+        "2": 2.8016312711603573,
+        "3": 2.195611280880783
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.392785254146465,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac04_05_r09",
+      "level": 4,
+      "replicate": 9,
+      "target_lacunarity": 2.9290200218026636,
+      "lacunarity": 2.922719921374182,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.08641975308642,
+        "2": 2.8058761670257515,
+        "3": 2.1774596910877437
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.465190765182564,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r00",
+      "level": 5,
+      "replicate": 0,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.2787352718368092,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.357457797933989,
+        "2": 3.199236517218974,
+        "3": 2.528363547119306
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.5555467720708815,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r01",
+      "level": 5,
+      "replicate": 1,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.2912268931362547,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.31575963718821,
+        "2": 3.196406586642044,
+        "3": 2.584367097499083
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.700369475667433,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r02",
+      "level": 5,
+      "replicate": 2,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.2521684303481004,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.10726883345931,
+        "2": 3.2261208576998053,
+        "3": 2.5958842674187763
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.645211602506017,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r03",
+      "level": 5,
+      "replicate": 3,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.271373391881755,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.23236331569665,
+        "2": 3.2487603023152425,
+        "3": 2.546183736107984
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.529202048178819,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r04",
+      "level": 5,
+      "replicate": 4,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.278745350020485,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.597222222222222,
+        "2": 3.1935766560651144,
+        "3": 2.4007681486245165
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.257275532061162,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r05",
+      "level": 5,
+      "replicate": 5,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.2525113003761215,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.21151423532376,
+        "2": 3.1949916213535787,
+        "3": 2.5571043193108958
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.38678956940471,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r06",
+      "level": 5,
+      "replicate": 6,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.279438915579031,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.169816074577978,
+        "2": 3.206311343661298,
+        "3": 2.63800762837406
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.8049594289189255,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r07",
+      "level": 5,
+      "replicate": 7,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.2875279189773066,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.221938775510205,
+        "2": 3.2331956841421294,
+        "3": 2.602941619903964
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.609610801175911,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r08",
+      "level": 5,
+      "replicate": 8,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.280155786461909,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.294910556815319,
+        "2": 3.226120857699805,
+        "3": 2.5471155919030664
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.68250186872913,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac05_05_r09",
+      "level": 5,
+      "replicate": 9,
+      "target_lacunarity": 3.2841381678440795,
+      "lacunarity": 3.255401418466159,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.2844860166288745,
+        "2": 3.1794270031804657,
+        "3": 2.5325968185117356
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.3240560015882705,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r00",
+      "level": 6,
+      "replicate": 0,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.6633292937034665,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.774439405391786,
+        "2": 3.619481207893027,
+        "3": 2.8448486376337105
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.832890099158284,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r01",
+      "level": 6,
+      "replicate": 1,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.706555827727772,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.09760015117158,
+        "2": 3.7171138127970997,
+        "3": 2.687447640289298
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.548833121754764,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r02",
+      "level": 6,
+      "replicate": 2,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.6912422287239304,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.909958427815572,
+        "2": 3.6817396805854794,
+        "3": 2.7821897334561023
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.6194087796138605,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r03",
+      "level": 6,
+      "replicate": 3,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.6473313571512764,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.691043083900227,
+        "2": 3.612406381450703,
+        "3": 2.863252435383449
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.6417456396230135,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r04",
+      "level": 6,
+      "replicate": 4,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.6771677133439327,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.003779289493575,
+        "2": 3.588351971546801,
+        "3": 2.7691541627381566
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.761604102118917,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r05",
+      "level": 6,
+      "replicate": 5,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.6784240922296494,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.920382968002017,
+        "2": 3.615236312027633,
+        "3": 2.7980134525110794
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.680314740206776,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r06",
+      "level": 6,
+      "replicate": 6,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.691816891605244,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.691043083900227,
+        "2": 3.7043791252009166,
+        "3": 2.895580263614768
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.679997767061379,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r07",
+      "level": 6,
+      "replicate": 7,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.6532673684364756,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.764014865205342,
+        "2": 3.6308009302007456,
+        "3": 2.8188296247991924
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.4084278215072965,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r08",
+      "level": 6,
+      "replicate": 8,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.6652327867916035,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.889109347442681,
+        "2": 3.6095764508737735,
+        "3": 2.790093088425838
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.644359419325864,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac06_05_r09",
+      "level": 6,
+      "replicate": 9,
+      "target_lacunarity": 3.682311293608808,
+      "lacunarity": 3.695707518505848,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 4.764014865205342,
+        "2": 3.694474368181663,
+        "3": 2.867919881237309
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.704469905871122,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r00",
+      "level": 7,
+      "replicate": 0,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.144422455734388,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.3477891156462585,
+        "2": 4.140188434048084,
+        "3": 3.215123603344504
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.57161075536295,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r01",
+      "level": 7,
+      "replicate": 1,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.146370734343114,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.337364575459814,
+        "2": 4.169902705105844,
+        "3": 3.2029606332274514
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.558531804346258,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r02",
+      "level": 7,
+      "replicate": 2,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.1163342199842905,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.295666414714034,
+        "2": 4.13311360760576,
+        "3": 3.1866467648160506
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.514651128670245,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r03",
+      "level": 7,
+      "replicate": 3,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.127354727929085,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.233119173595365,
+        "2": 4.155753052221197,
+        "3": 3.2329949853502864
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.583058222583129,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r04",
+      "level": 7,
+      "replicate": 4,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.148934517247699,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.316515495086924,
+        "2": 4.161412913375056,
+        "3": 3.2280618460180994
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.538815036312503,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r05",
+      "level": 7,
+      "replicate": 5,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.105338381203095,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.4833081380700435,
+        "2": 4.093494579528745,
+        "3": 3.0825491279471167
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.5451143263122455,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r06",
+      "level": 7,
+      "replicate": 6,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.091808961544876,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.30609095490048,
+        "2": 4.090664648951814,
+        "3": 3.1562942170548953
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.854552334838161,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r07",
+      "level": 7,
+      "replicate": 7,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.121397666744768,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.22269463340892,
+        "2": 4.145848295201942,
+        "3": 3.233147533420675
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.70753320115092,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r08",
+      "level": 7,
+      "replicate": 8,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.116510704309392,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.337364575459816,
+        "2": 4.099154440682604,
+        "3": 3.1883544581744485
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.74632872101154,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac07_05_r09",
+      "level": 7,
+      "replicate": 9,
+      "target_lacunarity": 4.128759440087825,
+      "lacunarity": 4.114795419119558,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.441609977324264,
+        "2": 4.08641975308642,
+        "3": 3.1331007261374504
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.610713946800633,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r00",
+      "level": 8,
+      "replicate": 0,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.609189372527161,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.973261526832955,
+        "2": 4.634011319722307,
+        "3": 3.5375699440685255
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.42955947306191,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r01",
+      "level": 8,
+      "replicate": 1,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.5868795483834965,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.046233308138071,
+        "2": 4.595807256933758,
+        "3": 3.473004124485401
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.237196253432796,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r02",
+      "level": 8,
+      "replicate": 2,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.613208774075653,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.06708238851096,
+        "2": 4.643916076741562,
+        "3": 3.4845369396223917
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.642259295785848,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r03",
+      "level": 8,
+      "replicate": 3,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.6206225709461135,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.910714285714287,
+        "2": 4.683535104818578,
+        "3": 3.563590062286704
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.56149803854426,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r04",
+      "level": 8,
+      "replicate": 4,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.596607497183629,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.973261526832957,
+        "2": 4.642501111453098,
+        "3": 3.5022626852085605
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.7294008618261465,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r05",
+      "level": 8,
+      "replicate": 5,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.590844122334241,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.941987906273622,
+        "2": 4.635426285010773,
+        "3": 3.5128224390060736
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.5649325863965835,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r06",
+      "level": 8,
+      "replicate": 6,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.632468094004378,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.087931468883852,
+        "2": 4.66089566020314,
+        "3": 3.50346815748518
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.285662589740438,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r07",
+      "level": 8,
+      "replicate": 7,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.612753487888301,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.973261526832958,
+        "2": 4.652405868472351,
+        "3": 3.5317634928452395
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.63833507534798,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r08",
+      "level": 8,
+      "replicate": 8,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.626915331786167,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.9628369866465105,
+        "2": 4.656650764337745,
+        "3": 3.567369149320441
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.59544599714664,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac08_05_r09",
+      "level": 8,
+      "replicate": 9,
+      "target_lacunarity": 4.629335532740346,
+      "lacunarity": 4.629571736687065,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 5.9941106072058465,
+        "2": 4.618446701549194,
+        "3": 3.584278650461745
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.635657714649666,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r00",
+      "level": 9,
+      "replicate": 0,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.172445265538738,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.630007558578989,
+        "2": 5.226881775589071,
+        "3": 3.993291469689193
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.535501338178561,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r01",
+      "level": 9,
+      "replicate": 1,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.148339650230398,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.609158478206099,
+        "2": 5.197167504531309,
+        "3": 3.9727267279711196
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.418325057231175,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r02",
+      "level": 9,
+      "replicate": 2,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.159401267629375,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.567460317460316,
+        "2": 5.225466810300605,
+        "3": 4.001984176371377
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.400246644856897,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r03",
+      "level": 9,
+      "replicate": 3,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.168713733288521,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.723828420256993,
+        "2": 5.252351150781436,
+        "3": 3.9100027502470494
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.799188477090974,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r04",
+      "level": 9,
+      "replicate": 4,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.21119017206788,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.682130259511212,
+        "2": 5.279235491262269,
+        "3": 4.011666243534047
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.677722514375851,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r05",
+      "level": 9,
+      "replicate": 5,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.15267199988995,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.671705719324767,
+        "2": 5.231126671454464,
+        "3": 3.9198132339854
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.653996391036842,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r06",
+      "level": 9,
+      "replicate": 6,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.186517152431751,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.650856638951879,
+        "2": 5.248106254916043,
+        "3": 3.997120578815534
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.589170690724188,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r07",
+      "level": 9,
+      "replicate": 7,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.235607614929483,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.723828420256992,
+        "2": 5.299045005300775,
+        "3": 4.027977551817035
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.573372351885644,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r08",
+      "level": 9,
+      "replicate": 8,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.180403664559694,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.755102040816328,
+        "2": 5.263670873089157,
+        "3": 3.909940658561421
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.462317281057232,
+      "poi_count": 35
+    },
+    {
+      "occlusions": "lac09_05_r09",
+      "level": 9,
+      "replicate": 9,
+      "target_lacunarity": 5.190602113218899,
+      "lacunarity": 5.171658780998109,
+      "within_tolerance": true,
+      "lacunarity_per_radius": {
+        "1": 6.713403880070547,
+        "2": 5.2452763243391125,
+        "3": 3.928062974166769
+      },
+      "entropy": 0.496168411020395,
+      "visual_degree_entropy": 6.659438677006225,
+      "poi_count": 35
+    }
+  ]
+}
