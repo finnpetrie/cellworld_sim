@@ -1,0 +1,19 @@
+# virtualenvs - env_generator/.venv was committed by mistake (1014 files)
+.venv/
+__pycache__/
+*.py[cod]
+
+# editor
+.vscode/
+
+# generated worlds: the cube16 sweeps alone are 39 GB each. The small
+# published sweeps (generated_worlds, generated_worlds_margin*, _100) stay
+# tracked - they are the ones the survival figures were made from.
+generated_worlds_cube8/
+generated_worlds_cube8_entropy/
+generated_worlds_cube16_corners/
+generated_worlds_cube16_entropy/
+published_worlds/
+
+# run logs and one-off plots
+gen_*.log

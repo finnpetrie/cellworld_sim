@@ -9,7 +9,18 @@ python3 -m venv .venv && .venv/bin/pip install -r env_generator/requirements.txt
 .venv/bin/python -m env_generator.validate                      # rebuilds hexagonal.21_05, checks it matches
 .venv/bin/python -m env_generator.generate --levels 10 --replicates 10 --margin 2 --start=-20,0 --goal 20,0 --keep-free 10,10
 .venv/bin/python -m env_generator.generate --lattice cubic --size 8 --levels 5   # 3D (needs the 3D C++ port)
+.venv/bin/python -m env_generator.generate --lattice cubic --size 8 --vary entropy --levels 10 --replicates 10 --out generated_worlds_cube8_entropy
 ```
+
+`--vary entropy` varies entropy instead: each level is an occlusion count (entropy 0.1 .. 1.0 by default, or
+`--entropies`), and occlusions are placed at random, one at a time, skipping any that would cut off a free cell.
+Lacunarity is recorded in the manifest but not controlled, and in random arrangements it falls as density rises.
+Worlds are named `ent<level>_<entropy×10>_r<replicate>`.
+
+If a run is interrupted, rerun the same command with `--resume`. It regenerates every arrangement, which is cheap
+and keeps the random stream in step. Worlds whose files are already in `--out` are checked against their
+arrangement and kept, and only the missing ones are built. Files are written to `<name>.partial` and then
+renamed, so an interrupted write never leaves a truncated file behind.
 
 Run from `cellworld_sim/`. Write negative coordinates as `--start=-20,0`; otherwise they are read as a flag.
 `--margin N` keeps the cells within N steps of the outer wall free. Without it, high-lacunarity clumps form

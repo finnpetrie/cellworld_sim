@@ -48,6 +48,25 @@ class Annealer:
                 return occluded
         raise RuntimeError("could not place the occlusions without disconnecting the world")
 
+    def random_connected_arrangement(self, count, attempts=100):
+        """Occludes movable cells one at a time in random order, skipping any that would cut off a free cell.
+        Unlike random_arrangement this still works at densities where a fully random placement almost never
+        leaves the free cells connected."""
+        for _ in range(attempts):
+            occluded = np.zeros(self.lattice.n, dtype=bool)
+            placed = 0
+            for cell in self.rng.permutation(self.movable):
+                if placed == count:
+                    break
+                occluded[cell] = True
+                if self.connected(occluded):
+                    placed += 1
+                else:
+                    occluded[cell] = False
+            if placed == count:
+                return occluded
+        raise RuntimeError(f"could not place {count} occlusions without disconnecting the world")
+
     def run(self, energy, steps, t_start, t_end, tolerance=None, occluded=None):
         """Minimises energy(log_lacunarity) by swapping an occluded cell with a free one. Half the swaps
         move an occlusion next to another occlusion, which lets clustered arrangements form quickly."""
@@ -94,8 +113,10 @@ def parse_cells(lattice, cells):
 
 def write_json(root, resource, file_name, content):
     os.makedirs(os.path.join(root, resource), exist_ok=True)
-    with open(os.path.join(root, resource, file_name), "w") as f:
+    path = os.path.join(root, resource, file_name)
+    with open(path + ".partial", "w") as f:
         json.dump(content, f, separators=(",", ":"))
+    os.replace(path + ".partial", path)  # so an interrupted run never leaves a truncated file for --resume to trust
 
 
 def add_poi_arguments(parser):
@@ -162,6 +183,35 @@ def save_world(root, lattice, name, world):
     write_json(root, "paths", f"{prefix}.astar", world["astar"])
 
 
+def load_world(root, lattice, name, occluded):
+    """--resume: the world an earlier run saved under this name (without its astar paths and options graph,
+    which the manifest does not need), or None if any of its files is missing. The arrangement is regenerated
+    either way to keep the random stream in step, so a saved world must match it exactly."""
+    prefix = f"{lattice.configuration_name}.{name}"
+    files = {"occlusions": "cell_group", "lppo": "cell_group", "cell_visibility": "graph",
+             "options": "graph", "astar": "paths"}
+    paths = {resource: os.path.join(root, folder, f"{prefix}.{resource}") for resource, folder in files.items()}
+    if not all(os.path.exists(path) for path in paths.values()):
+        return None
+    world = {}
+    for resource in ["occlusions", "lppo", "cell_visibility"]:
+        with open(paths[resource]) as f:
+            world[resource] = json.load(f)
+    if world["occlusions"] != np.flatnonzero(occluded).tolist():
+        raise SystemExit(f"{name} in {root} has other occlusions than this run makes; "
+                         "resume with the same arguments and --seed")
+    return world
+
+
+def build_or_load(args, lattice, name, occluded, required, settings):
+    world = load_world(args.out, lattice, name, occluded) if args.resume else None
+    if world is not None:
+        return world, True
+    world = build_world(lattice, occluded, required, settings)
+    save_world(args.out, lattice, name, world)
+    return world, False
+
+
 def visual_degree_entropy(visibility):
     """Shannon entropy (bits) of how many cells each free cell sees (cellworld Graph.complexity)."""
     degrees = [len(v) for v in visibility if v]
@@ -170,8 +220,54 @@ def visual_degree_entropy(visibility):
     return float(-(p * np.log2(p)).sum())
 
 
+def write_lattice(root, lattice):
+    write_json(root, "world_configuration", lattice.configuration_name, lattice.configuration)
+    write_json(root, "world_implementation", f"{lattice.configuration_name}.{lattice.implementation_name}",
+               lattice.implementation)
+
+
+def generate_entropy_levels(args, lattice, required, keep_free, radii):
+    """--vary entropy: at each entropy level, --replicates random arrangements of that many occlusions."""
+    entropies = args.entropies or np.linspace(.1, 1, args.levels).tolist()
+    movable = lattice.n - len(set(keep_free))
+    counts = [occlusion_count_for_entropy(e, lattice.n) for e in entropies]
+    if max(counts) > movable:
+        raise SystemExit(f"entropy {max(entropies)} needs {max(counts)} occlusions but only {movable} cells can be occluded")
+    settings = poi_settings(args)
+    lacunarity = Lacunarity(lattice, radii)
+    rng = np.random.default_rng(args.seed)
+    annealer = Annealer(lattice, 0, keep_free, lacunarity, rng)
+    print(f"{lattice.configuration_name}: {lattice.n} cells, POIs by {args.poi_method}, box radii {radii}, "
+          f"{movable} cells can be occluded")
+
+    os.makedirs(args.out, exist_ok=True)
+    write_lattice(args.out, lattice)
+    manifest = {"world_configuration": lattice.configuration_name, "pois": settings,
+                "world_implementation": lattice.implementation_name, "vary": "entropy",
+                "box_radii": radii, "margin": args.margin,
+                "start_goal": lattice.to_json_coordinates(lattice.coordinates[required]),
+                "keep_free": lattice.to_json_coordinates(lattice.coordinates[keep_free]), "worlds": []}
+    for level, (target, count) in enumerate(zip(entropies, counts)):
+        entropy = occupancy_entropy(count, lattice.n)
+        for replicate in range(args.replicates):
+            occluded = annealer.random_connected_arrangement(count)
+            name = f"{args.prefix or 'ent'}{level:02d}_{round(entropy * 10):02d}_r{replicate:02d}"
+            world, resumed = build_or_load(args, lattice, name, occluded, required, settings)
+            manifest["worlds"].append({
+                "occlusions": name, "level": level, "replicate": replicate,
+                "target_entropy": target, "entropy": entropy, "occlusion_count": count,
+                "lacunarity": lacunarity(occluded),
+                "lacunarity_per_radius": dict(zip(map(str, radii), lacunarity.per_radius(occluded))),
+                "visual_degree_entropy": visual_degree_entropy(world["cell_visibility"]),
+                "poi_count": len(world["lppo"])})
+            print(f"{name}: entropy {entropy:.3f} ({count} occluded), lacunarity {lacunarity(occluded):.3f}"
+                  + ("  (saved earlier)" if resumed else ""))
+    with open(os.path.join(args.out, "manifest.json"), "w") as f:
+        json.dump(manifest, f, indent=2)
+
+
 def main():
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser =argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--lattice", choices=["hexagonal", "cubic"], default="hexagonal")
     parser.add_argument("--cache", default="cellworld_simulation/build/.cellworld_cache",
                         help="cellworld cache holding the hexagonal world configuration (downloaded if missing)")
@@ -180,6 +276,11 @@ def main():
     occlusion = parser.add_mutually_exclusive_group()
     occlusion.add_argument("--entropy", type=float, default=0.5, help="world entropy to hold constant (default 0.5)")
     occlusion.add_argument("--occlusion-count", type=int, help="number of occluded cells, instead of --entropy")
+    parser.add_argument("--vary", choices=["lacunarity", "entropy"], default="lacunarity",
+                        help="lacunarity: anneal to lacunarity targets at constant --entropy. entropy: random "
+                             "connected arrangements at each entropy level (lacunarity is recorded, not controlled)")
+    parser.add_argument("--entropies", type=float, nargs="+",
+                        help="--vary entropy: entropy levels (default: --levels evenly spaced over 0.1 .. 1.0)")
     parser.add_argument("--levels", type=int, default=5, help="lacunarity levels, evenly spaced in log lacunarity")
     parser.add_argument("--targets", type=float, nargs="+", help="explicit lacunarity targets instead of --levels")
     parser.add_argument("--replicates", type=int, default=1, help="worlds per lacunarity level")
@@ -195,9 +296,12 @@ def main():
                              "(and high-lacunarity clumps) stay in the middle of the world")
     parser.add_argument("--steps", type=int, default=20000, help="annealing steps per world")
     parser.add_argument("--tolerance", type=float, default=.01, help="accepted |log lacunarity - log target|")
-    parser.add_argument("--prefix", default="lac", help="occlusions name prefix")
+    parser.add_argument("--prefix", help="occlusions name prefix (default: lac, or ent with --vary entropy)")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--out", default="generated_worlds")
+    parser.add_argument("--resume", action="store_true",
+                        help="finish an interrupted run: rerun it with the same arguments plus --resume, and worlds "
+                             "already in --out are checked and kept instead of rebuilt")
     add_poi_arguments(parser)
     args = parser.parse_args()
 
@@ -213,7 +317,9 @@ def main():
     required = parse_cells(lattice, [args.start or ends[0], args.goal or ends[1]])
     keep_free = required + parse_cells(lattice, args.keep_free)
     keep_free += np.flatnonzero(lattice.wall_distance() < args.margin).tolist()
-    count = args.occlusion_count if args.occlusion_count is not None else occlusion_count_for_entropy(args.entropy, lattice.n)
+    if args.vary == "entropy":
+        return generate_entropy_levels(args, lattice, required, keep_free, radii)
+    count =args.occlusion_count if args.occlusion_count is not None else occlusion_count_for_entropy(args.entropy, lattice.n)
     entropy = occupancy_entropy(count, lattice.n)
     settings = poi_settings(args)
     lacunarity = Lacunarity(lattice, radii)
@@ -233,9 +339,7 @@ def main():
         targets = np.linspace(low + margin, high - margin, args.levels).tolist()
 
     os.makedirs(args.out, exist_ok=True)
-    write_json(args.out, "world_configuration", lattice.configuration_name, lattice.configuration)
-    write_json(args.out, "world_implementation", f"{lattice.configuration_name}.{lattice.implementation_name}",
-               lattice.implementation)
+    write_lattice(args.out, lattice)
     manifest = {"world_configuration": lattice.configuration_name, "pois": settings,
                 "world_implementation": lattice.implementation_name,
                 "occlusion_count": count, "entropy": entropy, "box_radii": radii, "margin": args.margin,
@@ -244,9 +348,8 @@ def main():
     for level, target in enumerate(targets):
         for replicate in range(args.replicates):
             occluded = annealer.run(lambda x: abs(x - target), args.steps, .05, 1e-4, tolerance=args.tolerance)
-            name = f"{args.prefix}{level:02d}_{round(entropy * 10):02d}_r{replicate:02d}"
-            world = build_world(lattice, occluded, required, settings)
-            save_world(args.out, lattice, name, world)
+            name = f"{args.prefix or 'lac'}{level:02d}_{round(entropy * 10):02d}_r{replicate:02d}"
+            world, resumed = build_or_load(args, lattice, name, occluded, required, settings)
             achieved = lacunarity(occluded)
             within = abs(math.log(achieved) - target) <= args.tolerance
             manifest["worlds"].append({
@@ -256,7 +359,8 @@ def main():
                 "entropy": entropy, "visual_degree_entropy": visual_degree_entropy(world["cell_visibility"]),
                 "poi_count": len(world["lppo"])})
             print(f"{name}: lacunarity {achieved:.3f} (target {math.exp(target):.3f})"
-                  + ("" if within else "  ** outside tolerance, try more --steps"))
+                  + ("" if within else "  ** outside tolerance, try more --steps")
+                  + ("  (saved earlier)" if resumed else ""))
     with open(os.path.join(args.out, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=2)
 

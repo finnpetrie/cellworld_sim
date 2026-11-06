@@ -1,0 +1,3 @@
+[submodule "cellworld_simulation"]
+	path = cellworld_simulation
+	url = https://github.com/finnpetrie/cellworld_simulation.git

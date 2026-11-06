@@ -3,6 +3,7 @@ see and their options-graph links, and show where the predator can spawn.
 
     .venv/bin/python visualize_worlds.py                                  # generated_worlds_100 -> worlds.html
     .venv/bin/python visualize_worlds.py --worlds generated_worlds_margin2 --out worlds_margin2.html
+    .venv/bin/python visualize_worlds.py --worlds published_worlds --only 15_01 --out world_15_01.html
 
 Open the .html in a browser (from WSL: explorer.exe worlds.html).
 """
@@ -10,6 +11,7 @@ import argparse
 import base64
 import json
 import os
+import re
 
 
 def load(folder, resource, file_name):
@@ -149,7 +151,8 @@ function spawnCells(radius) {
   for (let q = 0; q < queue.length; q++) for (const j of neighbours[queue[q]])
     if (!occluded[j] && dist[j] < 0) { dist[j] = dist[queue[q]] + 1; queue.push(j); }
   const hidden = [...Array(n).keys()].filter(i => dist[i] > 0 && !sees(start, i));
-  if (!hidden.length) return [];
+  // like Simulation: with nothing hidden (an open arena) the predator spawns in plain sight within the radius
+  if (!hidden.length) return [...Array(n).keys()].filter(i => dist[i] > 0 && dist[i] <= radius);
   const r = Math.max(radius, Math.min(...hidden.map(i => dist[i])));
   return hidden.filter(i => dist[i] <= r);
 }
@@ -178,10 +181,10 @@ function draw() {
 
   document.getElementById("title").textContent = world.name;
   const stats = [
-    ["level", world.level], ["replicate", world.replicate],
+    [D.labels[0], world.level], [D.labels[1], world.replicate],
     ["lacunarity", world.lacunarity.toFixed(2)],
     ...Object.entries(world.per_radius).map(([r, v]) => [`  radius ${r}`, v.toFixed(2)]),
-    ["entropy", D.entropy.toFixed(3)], ["occlusions", world.occlusions.length],
+    ["entropy", (world.entropy ?? D.entropy).toFixed(3)], ["occlusions", world.occlusions.length],
     ["POIs", world.pois.length], ["visual-degree entropy", world.visual_entropy.toFixed(2)],
     ["spawn cells", spawn.size || (document.getElementById("showSpawn").checked ? "none hidden" : "-")],
   ];
@@ -232,9 +235,37 @@ load(0);
 """
 
 
+def manifest_from_occlusions(worlds):
+    """For a folder without a generator manifest (e.g. published cellworld_data worlds named WW_EE): the same
+    per-world statistics, computed from each world's files. The level is the entropy level EE, the replicate WW."""
+    from env_generator.generate import visual_degree_entropy
+    from plot_survival_worlds import LEVEL, load_lattice, world_statistics
+    from env_generator.metrics import Lacunarity
+
+    lattice, radii = load_lattice(worlds)
+    lacunarity = Lacunarity(lattice, radii)
+    configuration = lattice.configuration_name
+    names = sorted(f[len(configuration) + 1:-len(".occlusions")] for f in os.listdir(os.path.join(worlds, "cell_group"))
+                   if f.startswith(configuration + ".") and f.endswith(".occlusions"))
+    manifest = {"world_configuration": configuration, "world_implementation": lattice.implementation_name,
+                "entropy": None, "labels": ["entropy level", "world"], "worlds": []}
+    for name in names:
+        statistics = world_statistics(worlds, lattice, lacunarity, name)
+        visibility = load(worlds, "graph", f"{configuration}.{name}.cell_visibility")
+        number = re.match(r"\D*(\d+)", name)
+        manifest["worlds"].append({
+            "occlusions": name, "level": int(LEVEL.search(name)[1]), "replicate": int(number[1]) if number else 0,
+            "lacunarity": statistics["lacunarity"], "entropy": statistics["entropy"],
+            "lacunarity_per_radius": {str(r): statistics[f"lacunarity_r{r}"] for r in radii},
+            "visual_degree_entropy": visual_degree_entropy(visibility)})
+    return manifest
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--worlds", default="generated_worlds_100", help="generator output folder (with manifest.json)")
+    parser.add_argument("--worlds", default="generated_worlds_100",
+                        help="world folder: generator output (with manifest.json) or a cellworld cache folder")
+    parser.add_argument("--only", nargs="+", metavar="NAME", help="only the worlds with these names or name prefixes")
     parser.add_argument("--start", default="-20,0", help="prey start (default matches run.cpp)")
     parser.add_argument("--goal", default="20,0")
     parser.add_argument("--predator", default="20,0", help="predator_location in run.cpp")
@@ -242,8 +273,15 @@ def main():
     parser.add_argument("--out", default="worlds.html")
     args = parser.parse_args()
 
-    with open(os.path.join(args.worlds, "manifest.json")) as f:
-        manifest = json.load(f)
+    if os.path.exists(os.path.join(args.worlds, "manifest.json")):
+        with open(os.path.join(args.worlds, "manifest.json")) as f:
+            manifest = json.load(f)
+    else:
+        manifest = manifest_from_occlusions(args.worlds)
+    if args.only:
+        manifest["worlds"] = [w for w in manifest["worlds"] if any(w["occlusions"].startswith(o) for o in args.only)]
+        if not manifest["worlds"]:
+            raise SystemExit(f"no worlds in {args.worlds} match {' '.join(args.only)}")
     configuration = manifest["world_configuration"]
     config = load(args.worlds, "world_configuration", configuration)
     impl = load(args.worlds, "world_implementation", f"{configuration}.{manifest['world_implementation']}")
@@ -255,7 +293,7 @@ def main():
         "coordinates": [[c["x"], c["y"]] for c in config["cell_coordinates"]],
         "pattern": [[c["x"], c["y"]] for c in config["connection_pattern"]],
         "radius": impl["cell_transformation"]["size"] / 2,
-        "entropy": manifest["entropy"],
+        "entropy": manifest.get("entropy"), "labels": manifest.get("labels", ["level", "replicate"]),
         "start": parse_cell(args.start), "goal": parse_cell(args.goal), "predator": parse_cell(args.predator),
         "spawn_radius": args.radius,
         "worlds": [],
@@ -264,7 +302,7 @@ def main():
         name = w["occlusions"]
         data["worlds"].append({
             "name": name, "level": w["level"], "replicate": w["replicate"],
-            "lacunarity": w["lacunarity"], "per_radius": w["lacunarity_per_radius"],
+            "lacunarity": w["lacunarity"], "per_radius": w["lacunarity_per_radius"], "entropy": w.get("entropy"),
             "visual_entropy": w["visual_degree_entropy"],
             "occlusions": load(args.worlds, "cell_group", f"{configuration}.{name}.occlusions"),
             "pois": load(args.worlds, "cell_group", f"{configuration}.{name}.lppo"),

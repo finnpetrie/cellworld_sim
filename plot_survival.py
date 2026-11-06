@@ -37,6 +37,7 @@ def main():
     parser.add_argument("--results", default="cellworld_simulation/build", help="folder with the result .json files")
     parser.add_argument("--manifest", default="generated_worlds_100/manifest.json")
     parser.add_argument("--out", default="survival_vs_lacunarity.png")
+    parser.add_argument("--x", choices=["lacunarity", "entropy"], default="lacunarity", help="world statistic on the x axis")
     args = parser.parse_args()
 
     with open(args.manifest) as f:
@@ -50,28 +51,28 @@ def main():
     levels = collections.defaultdict(list)
     for name, results in survival.items():
         if name in worlds:
-            levels[worlds[name]["level"]].append((worlds[name]["lacunarity"], np.mean(results), len(results)))
+            levels[worlds[name]["level"]].append((worlds[name][args.x], np.mean(results), len(results)))
     if not levels:
         raise SystemExit(f"no result files in {args.results} match worlds in {args.manifest}")
 
-    print(f"{'level':>5} {'lacunarity':>10} {'worlds':>6} {'episodes':>8} {'survival':>8} {'sem':>6}")
+    print(f"{'level':>5} {args.x:>10} {'worlds':>6} {'episodes':>8} {'survival':>8} {'sem':>6}")
     summary = []
     for level in sorted(levels):
-        lacunarity, rates, episodes = map(np.array, zip(*levels[level]))
+        x_values, rates, episodes = map(np.array, zip(*levels[level]))
         sem = rates.std(ddof=1) / np.sqrt(len(rates)) if len(rates) > 1 else 0.0
-        summary.append((lacunarity.mean(), rates.mean(), sem))
-        print(f"{level:5d} {lacunarity.mean():10.2f} {len(rates):6d} {episodes.sum():8d} {rates.mean():8.3f} {sem:6.3f}")
+        summary.append((x_values.mean(), rates.mean(), sem))
+        print(f"{level:5d} {x_values.mean():10.2f} {len(rates):6d} {episodes.sum():8d} {rates.mean():8.3f} {sem:6.3f}")
 
     figure, axes = plt.subplots(figsize=(6, 4))
     for level in sorted(levels):
-        lacunarity, rates, _ = zip(*levels[level])
-        axes.scatter(lacunarity, rates, s=12, color="0.75", zorder=1)
+        x_values, rates, _ = zip(*levels[level])
+        axes.scatter(x_values, rates, s=12, color="0.75", zorder=1)
     x, y, sem = map(np.array, zip(*summary))
     axes.errorbar(x, y, yerr=sem, color="C0", marker="o", capsize=3, zorder=2, label="mean ± SEM over worlds")
-    axes.set_xlabel("lacunarity")
+    axes.set_xlabel(args.x)
     axes.set_ylabel("survival rate")
     axes.set_ylim(-0.02, 1.02)
-    axes.set_title("Prey survival vs lacunarity")
+    axes.set_title(f"Prey survival vs {args.x}")
     axes.legend(frameon=False)
     figure.tight_layout()
     figure.savefig(args.out, dpi=150)
